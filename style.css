@@ -1,0 +1,495 @@
+body {
+margin: 0;
+font-family: Arial;
+background: #111;
+color: rgb(255, 255, 255);
+}
+
+nav{
+    margin-top:20px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+        margin-top:20px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size:22px;
+}
+
+nav a {
+color: white;
+margin: 20px;
+text-decoration: none;
+padding: 10px 15px;
+border-radius: 8px;
+transition: 0.3s;
+font-size:22px;
+}
+
+nav a:hover {
+background: rgba(255, 255, 255, 0.2);
+color: cyan;
+box-shadow: 0 0 10px cyan;
+}
+
+nav a:active {
+background: yellow;
+color: black;
+}
+
+
+.hero{
+    text-align:center;
+    text-shadow: #050000;
+    padding:180px 20px;
+    background-image: url('gmbr/ChatGPT\ Image\ May\ 25\,\ 2026\,\ 08_03_55\ PM.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero h1{
+    font-size:70px;
+}
+
+.hero p{
+    font-size:28px;
+}
+
+.hero button{
+    font-size:22px;
+}
+
+button {
+padding: px 20px;
+border: none;
+background: yellow;
+cursor: pointer;
+font-weight: bold;
+}
+/**/
+
+.card-container,
+.services {
+display: flex;
+justify-content: center;
+gap: 20px;
+padding: 40px;
+}
+
+.card{
+    background:#222;
+    padding:60px;
+    border-radius:15px;
+    width:400px;
+    text-align:center;
+    transition:0.3s;
+    text-decoration:none;
+    color:white;
+}
+
+.card h2{
+    font-size:32px;
+    margin:15px 0;
+}
+
+.card h3{
+    color:gold;
+    margin-bottom:15px;
+    font-size:30px;
+}
+
+.card p{
+    font-size:30px;
+    line-height:1.5;
+}
+
+.card img{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.card:hover {
+animation: goyang 0.5s infinite;
+background:linear-gradient(to right, #6a0dad, black);
+}
+
+@keyframes goyang {
+0% {
+    transform: rotate(0deg);
+}
+
+25% {
+    transform: rotate(3deg);
+}
+
+50% {
+    transform: rotate(-3deg);
+}
+
+75% {
+    transform: rotate(3deg);
+}
+
+100% {
+    transform: rotate(0deg);
+}
+}
+
+/*menu*/
+header{
+    background: black;
+    text-align: center;
+    padding: 70px 20px;
+    box-shadow: 0 0 25px #c800ff;
+}
+
+header h1{
+    font-size: 70px;
+    margin: 0;
+    color: #f4f0f6;
+    text-shadow: 0 0 20px #c800ff;
+}
+
+/*about*/
+
+body{
+    margin: 0;
+    background: black;
+    color: #6a0dad;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header{
+    text-align: center;
+    padding: 30px;
+    background: #6a0dad;
+}
+
+header h1{
+    margin: 0;
+    font-size: 50px;
+}
+
+/* TEXT */
+.about{
+    padding: 40px;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 20px #c800ff;
+}
+
+.about1{
+    font-size: 25px;
+    
+
+}
+
+/* JUDUL */
+.about1 h3{
+    text-align: center;
+    margin-top: 50px;
+    color: #c800ff;
+    text-shadow: 0 0 20px #ffffff;
+}
+
+/* LIST */
+.about1 li{
+    text-align: left;
+    margin-bottom: 25px;
+    
+}
+
+.about1 ul{
+    text-align: justify;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+}
+
+/* CONTAINER GAMBAR */
+.card-gambar{
+    position: relative;
+    width: 500px;
+    margin: 40px auto;
+}
+
+/* GAMBAR */
+.card-gambar img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+    transition: 0.5s;
+}
+
+/* EFEK HOVER */
+.card-gambar img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 30px purple;
+}
+
+/* TULISAN DI ATAS GAMBAR */
+.card-gambar h2{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+
+    text-shadow: 0 0 10px purple;
+}
+
+/* EFEK PARALLAX */
+body{
+    background-attachment: fixed;
+}
+
+.gambar{
+    overflow: hidden;
+}
+
+.gambar img{
+    animation: gerak 4s infinite alternate ease-in-out;
+}
+
+@keyframes gerak{
+    from{
+        transform: translateY(0px);
+    }
+
+    to{
+        transform: translateY(-15px);
+    }
+}
+
+/**/
+
+input,
+textarea {
+width: 100%;
+margin-top: 10px;
+padding: 10px;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+background: #000;
+}
+/*menu utama booking*/
+.booking-btn {
+background: yellow;
+color: black;
+padding: 25px 100px;
+text-decoration: none;
+font-weight: bold;
+border-radius: 8px;
+transition: 0.3s;
+display: inline-block;
+font-size: 22px;
+}
+
+.booking-btn:hover {
+background: white;
+color: purple;
+box-shadow: 0 0 15px cyan;
+}
+
+.booking-btn:active {
+background: lime;
+transform: scale(0.95);
+}
+
+.card{
+    text-decoration: none;
+    color: white;
+}
+
+.card img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    margin:0;
+}
+
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+
+
+img{
+    margin-top:10px;
+    border-radius:10px;
+}
+
+/* POPUP */
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#000;
+    color:white;
+}
+
+
+/*contact bagian atas*/
+.contact{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.contact p{
+    text-align:center;
+    font-size:30px;
+    margin:10px 0;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:18px 25px;
+    margin-top:0;
+    border:1px solid rgba(red, green, blue, alpha);
+    border-radius:20px;
+    background:#e9e9e9;
+    font-size:20px;
+    font-family: 'orbitron',sans-serif;
+    box-sizing:border-box;
+    outline:none;
+}
+.payment-info{
+    background:#1d1d1d;
+    margin-top:30px;
+    padding:60px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(255,255,255,0.1);
+}
+
+.payment-info h3{
+    color:yellow;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.payment-info p{
+    font-size:18px;
+    color:white;
+}
+
+.payment-info img{
+    margin-top:15px;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    margin-top:25px;
+    border:none;
+    border-radius:12px;
+    background:yellow;
+    color:black;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:gold;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup-content{
+    background:white;
+    color:black;
+    width:90%;
+    max-width:450px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    animation:popup 0.3s ease;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-content h2{
+    color:green;
+    margin-bottom:20px;
+}
+
+.popup-content p{
+    line-height:30px;
+    font-size:18px;
+}
+
+.popup-content button{
+    background:yellow;
+    margin-top:20px;
+}
+
+.from-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media(max-width:768px){
+    .from-grid{
+        grid-template-columns: 1fr;
+    }
+}
+

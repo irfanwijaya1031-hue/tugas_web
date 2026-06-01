@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Booking - Rental PS Galaxy</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+<h1>🎮 Rental PS Galaxy 🎮</h1>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="contact">
+
+<p>📍 Jl. Gaming No.10</p>
+<p>📞 0812-3456-7890</p>
+<p>📷 Instagram: @rentalpsgalaxy</p>
+
+<form onsubmit="sendBooking(event)">
+<div class="from-grid">
+
+<input type="text" id="nama" placeholder="Nama Lengkap" required>
+
+<input type="text" id="nomor" placeholder="No Handphone" required>
+
+<select id="ps" required>
+
+<option value="">Pilih PlayStation</option>
+
+<option value="Reguler PS 3">Reguler PS 3</option>
+
+<option value="Reguler PS 4">Reguler PS 4</option>
+
+<option value="VIP PS 4">VIP PS 4</option>
+
+<option value="VVIP PS 5">VVIP PS 5</option>
+
+</select>
+
+<select id="room" required>
+
+<option value="">Pilih Room</option>
+
+</select>
+
+<input type="date" id="tanggal" required>
+
+<!-- JAM -->
+
+<select id="jam" required>
+
+<option value="">Pilih Jam</option>
+
+<option value="09:00">09:00</option>
+<option value="10:00">10:00</option>
+<option value="11:00">11:00</option>
+<option value="12:00">12:00</option>
+<option value="13:00">13:00</option>
+<option value="14:00">14:00</option>
+<option value="15:00">15:00</option>
+<option value="16:00">16:00</option>
+<option value="17:00">17:00</option>
+<option value="18:00">18:00</option>
+<option value="19:00">19:00</option>
+<option value="20:00">20:00</option>
+<option value="21:00">21:00</option>
+<option value="22:00">22:00</option>
+<option value="23:00">23:00</option>
+<option value="00:00">00:00</option>
+<option value="01:00">01:00</option>
+<option value="02:00">02:00</option>
+<option value="03:00">03:00</option>
+
+</select>
+
+<select id="durasi" required>
+
+<option value="">Pilih Durasi</option>
+
+<option value="1 Jam">1 Jam</option>
+
+<option value="3 Jam">3 Jam</option>
+
+<option value="5 Jam">5 Jam</option>
+
+</select>
+
+<textarea id="pesan" placeholder="Pesan"></textarea>
+
+<select id="payment" onchange="showPayment()" required>
+
+<option value="">METODE PEMBAYARAN</option>
+
+<option value="DANA">DANA</option>
+
+<option value="OVO">OVO</option>
+
+<option value="GoPay">GoPay</option>
+
+<option value="Transfer BCA">BCA</option>
+
+<option value="Transfer Mandiri">Mandiri</option>
+
+<option value="QRIS">QRIS</option>
+
+</select>
+
+<div class="payment-info" id="payment-info">
+
+<p>Silakan pilih metode pembayaran</p>
+
+</div>
+
+<button type="submit">
+Kirim Booking
+</button>
+
+</form>
+
+</section>
+
+<!-- POPUP -->
+
+<div id="popup" class="popup">
+
+<div class="popup-content">
+
+<h2>Booking Status</h2>
+
+<p id="hasil"></p>
+
+<button onclick="closePopup()">
+OK
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================= DATA BOOKING ================= */
+
+let bookings = [];
+
+const psSelect = document.getElementById("ps");
+const roomSelect = document.getElementById("room");
+
+/* ================= ROOM ================= */
+
+psSelect.addEventListener("change", updateRoom);
+
+function updateRoom(){
+
+let ps = psSelect.value;
+
+roomSelect.innerHTML =
+'<option value="">Pilih Room</option>';
+
+let jumlahRoom = 0;
+
+if(ps === "Reguler PS 3"){
+jumlahRoom = 5;
+}
+else if(ps === "Reguler PS 4"){
+jumlahRoom = 5;
+}
+else if(ps === "VIP PS 4"){
+jumlahRoom = 3;
+}
+else if(ps === "VVIP PS 5"){
+jumlahRoom = 2;
+}
+
+for(let i = 1; i <= jumlahRoom; i++){
+
+let option = document.createElement("option");
+
+option.value = "Room " + i;
+
+option.textContent = "Room " + i;
+
+roomSelect.appendChild(option);
+
+}
+
+}
+
+/* ================= PAYMENT ================= */
+
+function showPayment(){
+
+let payment =
+document.getElementById("payment").value;
+
+let info =
+document.getElementById("payment-info");
+
+if(payment == "DANA"){
+
+info.innerHTML = `
+<h3>DANA</h3>
+<p>081234567890</p>
+<p>Rental PS Galaxy</p>
+`;
+
+}
+
+else if(payment == "OVO"){
+
+info.innerHTML = `
+<h3>OVO</h3>
+<p>081234567890</p>
+<p>Rental PS Galaxy</p>
+`;
+
+}
+
+else if(payment == "GoPay"){
+
+info.innerHTML = `
+<h3>GoPay</h3>
+<p>081234567890</p>
+<p>Rental PS Galaxy</p>
+`;
+
+}
+
+else if(payment == "Transfer BCA"){
+
+info.innerHTML = `
+<h3>BCA</h3>
+<p>8649922776</p>
+<p>Rental PS Galaxy</p>
+`;
+
+}
+
+else if(payment == "Transfer Mandiri"){
+
+info.innerHTML = `
+<h3>Mandiri</h3>
+<p>1225698003425</p>
+<p>Rental PS Galaxy</p>
+`;
+
+}
+
+else if(payment == "QRIS"){
+
+info.innerHTML = `
+<h3>QRIS</h3>
+<img src="qris.png" width="220">
+<p>Scan untuk bayar</p>
+`;
+
+}
+
+else{
+
+info.innerHTML =
+`<p>Silakan pilih metode pembayaran</p>`;
+
+}
+
+}
+
+/* ================= BOOKING ================= */
+
+function sendBooking(event){
+
+event.preventDefault();
+
+let nama =
+document.getElementById("nama").value;
+
+let nomor =
+document.getElementById("nomor").value;
+
+let ps =
+document.getElementById("ps").value;
+
+let room =
+document.getElementById("room").value;
+
+let tanggal =
+document.getElementById("tanggal").value;
+
+let jam =
+document.getElementById("jam").value;
+
+let durasi =
+document.getElementById("durasi").value;
+
+let payment =
+document.getElementById("payment").value;
+
+/* ================= CEK BENTROK ================= */
+
+let bentrok = bookings.find(b =>
+b.ps === ps &&
+b.room === room &&
+b.tanggal === tanggal &&
+b.jam === jam
+);
+
+if(bentrok){
+
+/* ================= CARI SLOT LAIN ================= */
+
+let saran = "";
+
+if(ps === "Reguler PS 3"){
+
+saran = `
+💡 Silakan coba:
+<br>• Room lain di Reguler PS 3
+<br>• Reguler PS 4
+<br>• VIP PS 4
+<br>• VVIP PS 5
+`;
+
+}
+
+else if(ps === "Reguler PS 4"){
+
+saran = `
+💡 Silakan coba:
+<br>• Room lain di Reguler PS 4
+<br>• VIP PS 4
+`;
+
+}
+
+else if(ps === "VIP PS 4"){
+
+saran = `
+💡 Silakan coba:
+<br>• Room lain di VIP PS 4
+<br>• VVIP PS 5
+`;
+
+}
+
+else if(ps === "VVIP PS 5"){
+
+saran = `
+💡 Silakan coba:
+<br>• Room lain di VVIP PS 5
+<br>• VIP PS 4
+`;
+
+}
+
+/* ================= OUTPUT ================= */
+
+document.getElementById("hasil").innerHTML = `
+❌ ROOM SUDAH DIPESAN<br><br>
+
+PS : ${ps}<br>
+Room : ${room}<br>
+Tanggal : ${tanggal}<br>
+Jam : ${jam}<br><br>
+
+${saran}
+`;
+
+document.getElementById("popup").style.display = "flex";
+
+return;
+
+}
+
+/* ================= SIMPAN BOOKING ================= */
+
+bookings.push({
+nama,
+nomor,
+ps,
+room,
+tanggal,
+jam
+});
+
+/* ================= OUTPUT ================= */
+
+document.getElementById("hasil").innerHTML = `
+✅ Booking Berhasil<br><br>
+
+Nama : ${nama}<br>
+No HP : ${nomor}<br>
+PS : ${ps}<br>
+Room : ${room}<br>
+Tanggal : ${tanggal}<br>
+Jam : ${jam}<br>
+Durasi : ${durasi}<br>
+Pembayaran : ${payment}
+`;
+
+document.getElementById("popup").style.display = "flex";
+
+}
+
+/* ================= CLOSE POPUP ================= */
+
+function closePopup(){
+
+document.getElementById("popup").style.display = "none";
+
+}
+
+/* ================= AUTO FILL DARI MENU ================= */
+
+const url = window.location.search;
+
+const pesan = document.getElementById("pesan");
+
+if(url == "?ps3"){
+
+psSelect.value = "Reguler PS 3";
+
+pesan.value = "Booking Reguler PS 3";
+
+}
+
+else if(url == "?ps4"){
+
+psSelect.value = "Reguler PS 4";
+
+pesan.value = "Booking Reguler PS 4";
+
+}
+
+else if(url == "?vipps4"){
+
+psSelect.value = "VIP PS 4";
+
+pesan.value = "Booking VIP PS 4";
+
+}
+
+else if(url == "?vvipps5"){
+
+psSelect.value = "VVIP PS 5";
+
+pesan.value = "Booking VVIP PS 5";
+
+}
+
+/* ================= INIT ================= */
+
+updateRoom();
+
+</script>
+
+</body>
+</html>
